@@ -11,7 +11,7 @@ set303i=y
 set303b=pannkaka_bankbank
 
 # public git (private for private, public for public)
-set303c=publik
+set303c=public
 
 # auto generate HTML page, y for yes and n for no
 set303d=y
