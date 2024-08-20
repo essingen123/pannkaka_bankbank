@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 import os
 import subprocess
-import sys
 
 # Pannkaka Button Script Content
 pannkaka_button_script = """
 #!/bin/bash
 
 PANNKAKA_FILE="/tmp/pannkaka_mode"
-EXCLUDE_PROCESS_NAMES=("gnome-shell" "pulseaudio" "Xwayland")
+EXCLUDE_PROCESS_NAMES=("gnome-shell" "pulseaudio" "Xwayland" "cpulimit")
 LEVEL_FILE="/tmp/pannkaka_level"
 
 limit_cpu() {
@@ -26,6 +25,7 @@ limit_cpu() {
             fi
         done
         if [ "$exclude" = false ]; then
+            echo "Attempting to limit process: $pid ($cmd) to $level%"
             cpulimit -p $pid -l $level &
         fi
     done <<< "$top_processes"
@@ -36,9 +36,10 @@ limit_network() {
     # Find the most likely active Wi-Fi interface
     interface=$(ip route show default | awk '/default via/ {print $5}')
     if [[ -n "$interface" ]]; then
+        echo "Limiting network interface: $interface"
         sudo tc qdisc add dev "$interface" root handle 1: htb default 12
-        sudo tc class add dev "$interface" parent 1: classid 1:1 htb rate 1mbit
-        sudo tc class add dev "$interface" parent 1:1 classid 1:12 htb rate 1mbit
+        sudo tc class add dev "$interface" parent 1: classid 1:1 htb rate $(( 1024 / level ))kbit
+        sudo tc class add dev "$interface" parent 1:1 classid 1:12 htb rate $(( 1024 / level ))kbit
     else
         echo "⚠️ No active Wi-Fi interface found. Network limiting may not work."
     fi
@@ -50,6 +51,7 @@ remove_limits() {
     # Find the most likely active Wi-Fi interface
     interface=$(ip route show default | awk '/default via/ {print $5}')
     if [[ -n "$interface" ]]; then
+        echo "Removing limits from interface: $interface"
         sudo tc qdisc del dev "$interface" root
     fi
 }
@@ -71,25 +73,26 @@ toggle_pannkaka_mode() {
     if [ -f "$PANNKAKA_FILE" ]; then
         remove_limits
         rm "$PANNKAKA_FILE"
+        echo 100 > $LEVEL_FILE
         notify "😴 Pannkaka mode deactivated."
         alert "😴 Pannkaka mode deactivated."
     else
-        if [ -f "$LEVEL_FILE" ]; then
+        if [ ! -f "$LEVEL_FILE" ]; then
             echo 50 > $LEVEL_FILE
         fi
         level=$(cat $LEVEL_FILE)
         if [ $level -eq 50 ]; then
             echo 20 > $LEVEL_FILE
         elif [ $level -eq 20 ]; then
-            echo 5 > $LEVEL_FILE
-        elif [ $level -eq 5 ]; then
+            echo 10 > $LEVEL_FILE
+        elif [ $level -eq 10 ]; then
             echo 1 > $LEVEL_FILE
         fi
         limit_cpu
         limit_network
         touch "$PANNKAKA_FILE"
         notify "💥 Pannkaka mode activated!"
-        alert "💥 Pannkaka mode activated!"
+        alert "💥 Pannkaka mode activated! Level: $(cat $LEVEL_FILE)"
     fi
 }
 
@@ -97,29 +100,34 @@ toggle_pannkaka_mode
 """
 
 
-def run_command(command):
+def run_command(command, input=None):
     try:
-        subprocess.run(command, check=True, shell=True)
+        if input is not None:
+            subprocess.run(command, check=True, input=input.encode(), shell=True)
+        else:
+            subprocess.run(command, check=True, shell=True)
     except subprocess.CalledProcessError as e:
         print(f"Error running command: {command} (returncode {e.returncode})")
 
 
 def install_pannkaka_button():
-    # Check if running with sudo
-    if os.geteuid() != 0:
-        print("This script requires sudo privileges. Relaunching with sudo...")
-        os.execlp("sudo", "sudo", *sys.argv)
+    # --- Diagnostic Commands ---
+    print("Diagnostic Information:")
+    run_command("whoami")
+    run_command("pwd")
+    run_command("groups")
+    run_command(
+        "dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/"
+    )  # Check existing keybindings
 
     script_path = os.path.expanduser("~/pannkaka_button_cooler.sh")
 
-    # Create the script file
+    # --- Create and prepare the script ---
     with open(script_path, "w") as script_file:
         script_file.write(pannkaka_button_script)
-
-    # Make the script executable
     run_command(f"chmod +x {script_path}")
 
-    # Add aliases to .bashrc
+    # --- Set up aliases ---
     bashrc_path = os.path.expanduser("~/.bashrc")
     with open(bashrc_path, "a") as bashrc_file:
         bashrc_file.write("\n# Pannkaka Button Aliases\n")
@@ -128,36 +136,38 @@ def install_pannkaka_button():
             f"alias pannkaka_off='rm /tmp/pannkaka_mode && {script_path}'\n"
         )
         bashrc_file.write(f"alias pannkaka_on='{script_path}'\n")
-
-    # Reload .bashrc
     run_command(f"bash -c 'source {bashrc_path}'")
 
-    # Remove old sudoers entry
+    # --- Configure sudoers ---
     sudoers_path = "/etc/sudoers.d/pannkaka_button_cooler"
-    run_command(f"rm -f {sudoers_path}")
+    run_command(f"sudo rm -f {sudoers_path}")
+    run_command(
+        f"echo '%sudo ALL=(ALL) NOPASSWD: {script_path}' | sudo tee {sudoers_path}"
+    )
 
-    # Add sudoers entry
-    run_command(f"echo '%sudo ALL=(ALL) NOPASSWD: {script_path}' > {sudoers_path}")
-
-    # Remove old keybindings
+    # --- Reset existing keybindings ---
     run_command(
         "dconf reset -f /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/"
     )
 
-    # Hardcoded keybinding commands
-    subprocess.run(
-        f"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding \"'<Primary><Super><Alt>space'\" && dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command \"'/usr/bin/notify-send Toggler; {script_path}'\"", check=True,
-        shell=True
+    # --- Hardcoded Keybinding Commands ---
+    run_command(
+        f"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding \"'<Primary><Super><Alt>space'\""
     )
-    subprocess.run(
-        f"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding \"'<Primary><Super><Alt>p'\" && dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command \"'/usr/bin/notify-send DeactivatePanikMode; rm /tmp/panik_mode && {script_path}'\"",
-        shell=True,
-        check=True,
+    run_command(
+        f"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command \"'{script_path}'\""
     )
-    subprocess.run(
-        f"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding \"'<Primary><Super><Alt>o'\" && dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command \"'/usr/bin/notify-send ActivatePanikMode; {script_path}'\"",
-        shell=True,
-        check=True,
+    run_command(
+        f"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding \"'<Primary><Super><Alt>p'\""
+    )
+    run_command(
+        f"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command \"'rm /tmp/pannkaka_mode && {script_path}'\""
+    )
+    run_command(
+        f"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding \"'<Primary><Super><Alt>o'\""
+    )
+    run_command(
+        f"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command \"'{script_path}'\""
     )
 
     print("\n🎉 Instructions:")
