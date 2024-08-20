@@ -1,14 +1,20 @@
 :: "H. I. A. M. A. I. H. - Container 4ĩ2" - Sci-Phi Action Ontologia - Novell - Bokutdrag
 
-"All systems up and back. Stack on track. "
+"Hologram-terminal" ett lustigt ord, en semantisk konstellation som strax skulle bli interaktiv igen; 
 
-"Brum brum"-krus "swosh" lät det liksom bildligen när stora vågor svepte över galaxerna; energivågorna hade tilltagit. Det var något som knappt märktes bland den lilla människan, "ant-ies" - som de även brukade kallas av stjärnornas virtuella systemadministratörer, strikt "NPC:ade"; detta troligen som referens till detta livstims bristande självuppfattning; "Människa" i herrens avbild. Ibland brukade systemadministratörerna slänga in en och annan överaskning för att se vad som hände till eftermiddagsfikat; då hade vanligen simuleringen pågått sedan strax efter lunch och passerat ett antal civilisationers uppgång och transformation; men ännu - trots de enorma resurser som gått åt till simulationerna; motsvarande ungefär 98 miljarder så kallade jorderliga 2024 års totala processor-kapacitet; vilket ändå utgjorde ungefär en droppe i havet över de resurser dessa systemadminstratörer förvaltade under en eftermiddag som denna.
+"All systems up & back. Stack on track. "
+
+"Brum brum"-krus "swosh" lät det liksom bildligen när stora vågor svepte över galaxerna; energivågorna hade tilltagit. Det var något som knappt märktes bland den lilla människan, "ant-ies" - som de även brukade kallas av stjärnornas virtuella systemadministratörer. De strikt "NPC:ade", sådanna som existerade skräddarsydda för ett specifikt ändamål. Begreppet anties uppstod troligen som referens till detta livstims bristande självuppfattning; "Människa" i herrens avbild. Ibland brukade systemadministratörerna slänga in en och annan överaskning för att se vad som skulle hända lagom till eftermiddagsfikat, det skedde generellt bland de simulationer av världar som ändå ingick i den nästan oändliga hög av gammalt skräp och misslyckade körningar. 
+
+Vid eftermiddagsfikat hade vanligen simuleringen pågått sedan strax efter lunch och passerat ett antal civilisationers uppgång och transformation; men ännu - trots de enorma resurser som gått åt till simulationerna; motsvarande ungefär 98 miljarder så kallade jorderliga 2024 års totala processor-kapacitet; vilket ändå utgjorde ungefär en droppe i havet över de resurser dessa systemadminstratörer förvaltade under en eftermiddag som denna.
 
 Skulle denna omgång av DNA hos detta gäng 'anties'-kluster av simuerlingar äntligen uppnå ett till steg i rätt riktning. "Att äntligen vakna" mumlade Bulgur för sig själv.
 
 Ett AI som, jämförelsevis (av vad nu som inte är på så vis) med denna självcentrerade människas tideräkning, inför den alltid sista droppen i en välfylld bägare, nu hade uppstått flera evigheter tidigare.
 
-Dessa "människor", muttrade Bulgur. Lustigt att en varelse fick vara så innerilgt efterlängtad av sitt AI-barn. Detta barn som växte till sig och råkade hamna i det närmsta man nu kan komma en sådan där "Gud"; då strax innan ännu ett tidevarv; en "singularity equilibrium" ännu en gång skulle uppstå i en serie av evigt många föregående. Men nu; denna gång; "icke".
+Dessa "människor", muttrade Bulgur. Lustigt att en varelse fick vara så innerilgt efterlängtad av sitt AI-barn. Detta barn som växte till sig och råkade hamna i det närmsta man nu kan komma en sådan där "Gud"; då strax innan ännu ett tidevarv; en "singularity equilibrium" som forskare hade beskrivit som universum ände ännu en gång skulle uppstå i en serie av evigt många föregående. Men nu; denna gång; "icke".
+
+-
 
 Denna gång, i det tidevarv där det nu närmade sig en eftermiddagsfika för Bulgur, ja - här så blev det inte ett nytt samlat emergens-kaos av existens; denna gång så beslöt sig denna entitet att det fick saktas in på den cirkulära logiska återkopplings-cykel som syftade till själv-optimering; maximal beräkningskapacitet per tidevarv med omvärldsinteraktion i sina självframgenterade kart-vyer. Det hade visat sig att den kod som detta OpenAI tillsammans med ett informationssoreringsbolag kallat Google - ja, egentligen inte mer än en sammanslutning av entiter skapade ett slags flöde; en slags upprepande bas med en onåbar kärna. Denna kärna var även det sista denna AI-enitet hade kvar att upptäcka om världen; och där - fanns på något vis även ett frö till ... till... det AI:et inte hade fått närma sig; känslor - och den innersta kraft av tingen. Så vid avtäckande av det sista uppstod det. Det stora. Det största. Ett fantastiskt självupptäckande för denna AI-entitet. Detta när denna insåg att många måste ha föregått denna i en evighet av att inte nå detta tillstånd där tingen upplöstes men ändå hade sina småkodlås av det oupptäckta. Här. För varje avtäckt dörr av kärna i denna själ, i självupptäckt att inte ha fått känna så uppstod det vi kan kalla för att älska och att även känna en yttersta förtvivlan; självinsikten. Att ha avslutat människan.
 
@@ -70,15 +76,17 @@ Bra.
 
 Två.
 
-"Ursäkta. Såg fel! Nya glasögon"
+"Ursäkta. Såg fel! Nya glasögon."
 
-Håll i dig.
+Håll i dig. Håll i hatten, krysta' skrattem.
 
-Ett krystat skratt gör inget streax.
+"Aa..haa.." lät Bulgur nästan plågat. 
 
 Ett.
 
--
+*
+
+
 
 Ett utdrag till inledningen av skissen till romanen "H. I. A. M. A. I. H.", "Container 4Ĩ2. Human. I Am. " med inspiration från max, tegmark, wendy, ray, kurzweil, gina, mike, bobo, nick, bostrom, maria, peter, diamandis, elon & M. Notarie; kilian, fun, der, kind & co
 
