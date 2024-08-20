@@ -614,6 +614,33 @@
     {
         "label": "run_command",
         "kind": 2,
+        "importPath": ".prework3.pannkaka_bankbank",
+        "description": ".prework3.pannkaka_bankbank",
+        "peekOfCode": "def run_command(command, input=None):\n    try:\n        if input is not None:\n            subprocess.run(command, check=True, input=input.encode(), shell=True)\n        else:\n            subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # --- Diagnostic Commands ---",
+        "detail": ".prework3.pannkaka_bankbank",
+        "documentation": {}
+    },
+    {
+        "label": "install_pannkaka_button",
+        "kind": 2,
+        "importPath": ".prework3.pannkaka_bankbank",
+        "description": ".prework3.pannkaka_bankbank",
+        "peekOfCode": "def install_pannkaka_button():\n    # --- Diagnostic Commands ---\n    print(\"Diagnostic Information:\")\n    run_command(\"whoami\")\n    run_command(\"pwd\")\n    run_command(\"groups\")\n    run_command(\n        \"dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"\n    )  # Check existing keybindings\n    script_path = os.path.expanduser(\"~/pannkaka_button_cooler.sh\")",
+        "detail": ".prework3.pannkaka_bankbank",
+        "documentation": {}
+    },
+    {
+        "label": "pannkaka_button_script",
+        "kind": 5,
+        "importPath": ".prework3.pannkaka_bankbank",
+        "description": ".prework3.pannkaka_bankbank",
+        "peekOfCode": "pannkaka_button_script = \"\"\"\n#!/bin/bash\nPANNKAKA_FILE=\"/tmp/pannkaka_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\" \"cpulimit\")\nLEVEL_FILE=\"/tmp/pannkaka_level\"\nlimit_cpu() {\n    echo \"🔥 Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": ".prework3.pannkaka_bankbank",
+        "documentation": {}
+    },
+    {
+        "label": "run_command",
+        "kind": 2,
         "importPath": ".prework3.pannkaka_knapp_setup",
         "description": ".prework3.pannkaka_knapp_setup",
         "peekOfCode": "def run_command(command):\n    try:\n        subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # Check if running with sudo\n    if os.geteuid() != 0:\n        print(\"This script requires sudo privileges. Relaunching with sudo...\")\n        os.execlp(\"sudo\", \"sudo\", *sys.argv)",
@@ -670,7 +697,7 @@
         "kind": 2,
         "importPath": "pannkaka_bankbank",
         "description": "pannkaka_bankbank",
-        "peekOfCode": "def run_command(command, input=None):\n    try:\n        if input is not None:\n            subprocess.run(command, check=True, input=input.encode(), shell=True)\n        else:\n            subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # --- Diagnostic Commands ---",
+        "peekOfCode": "def run_command(command, input=None):\n    try:\n        if input is not None:\n            subprocess.run(command, check=True, input=input.encode(), shell=True)\n        else:\n            subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # --- Create the directory for storing files ---",
         "detail": "pannkaka_bankbank",
         "documentation": {}
     },
@@ -679,7 +706,7 @@
         "kind": 2,
         "importPath": "pannkaka_bankbank",
         "description": "pannkaka_bankbank",
-        "peekOfCode": "def install_pannkaka_button():\n    # --- Diagnostic Commands ---\n    print(\"Diagnostic Information:\")\n    run_command(\"whoami\")\n    run_command(\"pwd\")\n    run_command(\"groups\")\n    run_command(\n        \"dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"\n    )  # Check existing keybindings\n    script_path = os.path.expanduser(\"~/pannkaka_button_cooler.sh\")",
+        "peekOfCode": "def install_pannkaka_button():\n    # --- Create the directory for storing files ---\n    script_dir = os.path.dirname(os.path.abspath(__file__))\n    files_dir = os.path.join(script_dir, \"auto_created_important_files_often_in_use\")\n    os.makedirs(files_dir, exist_ok=True)\n    script_path = os.path.join(files_dir, \"pannkaka_button_cooler.sh\")\n    # --- Create and prepare the script ---\n    with open(script_path, \"w\") as script_file:\n        script_file.write(pannkaka_button_script)\n    run_command(f\"chmod +x {script_path}\")",
         "detail": "pannkaka_bankbank",
         "documentation": {}
     },
@@ -688,7 +715,7 @@
         "kind": 5,
         "importPath": "pannkaka_bankbank",
         "description": "pannkaka_bankbank",
-        "peekOfCode": "pannkaka_button_script = \"\"\"\n#!/bin/bash\nPANNKAKA_FILE=\"/tmp/pannkaka_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\" \"cpulimit\")\nLEVEL_FILE=\"/tmp/pannkaka_level\"\nlimit_cpu() {\n    echo \"🔥 Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "peekOfCode": "pannkaka_button_script = \"\"\"\n#!/bin/bash\nPANNKAKA_FILE=\"$PWD/auto_created_important_files_often_in_use/pannkaka_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\" \"cpulimit\")\nLEVEL_FILE=\"$PWD/auto_created_important_files_often_in_use/pannkaka_level\"\nlimit_cpu() {\n    echo \"🔥 Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
         "detail": "pannkaka_bankbank",
         "documentation": {}
     },

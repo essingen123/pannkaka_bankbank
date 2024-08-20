@@ -1,16 +1,14 @@
 #!/usr/bin/env python
 import os
 import subprocess
-#kilian fun der kind & cotelligence
-# mit + *303%
-# discalimer: not for human usage, no human involvment unless explicitly granted or allowed kind of !
+
 # Pannkaka Button Script Content
 pannkaka_button_script = """
 #!/bin/bash
 
-PANNKAKA_FILE="$PWD/auto_created_important_files_often_in_use/pannkaka_mode"
+PANNKAKA_FILE="/tmp/pannkaka_mode"
 EXCLUDE_PROCESS_NAMES=("gnome-shell" "pulseaudio" "Xwayland" "cpulimit")
-LEVEL_FILE="$PWD/auto_created_important_files_often_in_use/pannkaka_level"
+LEVEL_FILE="/tmp/pannkaka_level"
 
 limit_cpu() {
     echo "🔥 Limiting CPU usage of top resource-consuming processes..."
@@ -76,8 +74,8 @@ toggle_pannkaka_mode() {
         remove_limits
         rm "$PANNKAKA_FILE"
         echo 100 > $LEVEL_FILE
-        notify "🥞 Pannkaka mode deactivated. Processes cooled down!"
-        alert "🥞 Pannkaka mode deactivated. Processes cooled down!"
+        notify "😴 Pannkaka mode deactivated."
+        alert "😴 Pannkaka mode deactivated."
     else
         if [ ! -f "$LEVEL_FILE" ]; then
             echo 50 > $LEVEL_FILE
@@ -93,34 +91,12 @@ toggle_pannkaka_mode() {
         limit_cpu
         limit_network
         touch "$PANNKAKA_FILE"
-        notify "🔥 Pannkaka mode activated! Throwing pancakes on hot processes!"
-        alert "🔥 Pannkaka mode activated! Throwing pancakes on hot processes! Level: $(cat $LEVEL_FILE)"
+        notify "💥 Pannkaka mode activated!"
+        alert "💥 Pannkaka mode activated! Level: $(cat $LEVEL_FILE)"
     fi
 }
 
-handle_caps_lock_on() {
-    read -n 1 -s -r -p "Press 'a' to add a pancake, 'd' to deactivate, or any other key to exit: " key
-    case "$key" in
-        a|A)
-            echo "Adding another pancake! (Implementation for increasing limit)"
-            # Add logic here to increase the limit (e.g., decrease the percentage in $LEVEL_FILE)
-            ;;
-        d|D)
-            echo "Deactivating Pannkaka mode!"
-            toggle_pannkaka_mode
-            ;;
-        *)
-            echo "Exiting..."
-            ;;
-    esac
-}
-
-# Main execution block
-if [[ -n "$1" && "$1" == "caps_lock_on" ]]; then
-    handle_caps_lock_on
-else
-    toggle_pannkaka_mode
-fi
+toggle_pannkaka_mode
 """
 
 
@@ -135,12 +111,16 @@ def run_command(command, input=None):
 
 
 def install_pannkaka_button():
-    # --- Create the directory for storing files ---
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    files_dir = os.path.join(script_dir, "auto_created_important_files_often_in_use")
-    os.makedirs(files_dir, exist_ok=True)
+    # --- Diagnostic Commands ---
+    print("Diagnostic Information:")
+    run_command("whoami")
+    run_command("pwd")
+    run_command("groups")
+    run_command(
+        "dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/"
+    )  # Check existing keybindings
 
-    script_path = os.path.join(files_dir, "pannkaka_button_cooler.sh")
+    script_path = os.path.expanduser("~/pannkaka_button_cooler.sh")
 
     # --- Create and prepare the script ---
     with open(script_path, "w") as script_file:
@@ -190,16 +170,7 @@ def install_pannkaka_button():
         f"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command \"'{script_path}'\""
     )
 
-    # --- Configure Caps Lock as a toggle ---
-    run_command(
-        "gsettings set org.gnome.desktop.input-sources xkb-options \"['caps:escape']\""
-    )
-
     print("\n🎉 Instructions:")
-    print("- Press Caps Lock to toggle pannkaka mode. 🥞")
-    print(
-        "- While Caps Lock is ON, press 'a' to add another pancake (increase limit), 'd' to deactivate, or any other key to exit."
-    )
     print("- Press Ctrl+Super+Alt+Space to toggle pannkaka mode. 🥞")
     print("- Press Ctrl+Super+Alt+P to deactivate pannkaka mode. 😴")
     print("- Press Ctrl+Super+Alt+O to activate pannkaka mode. 💥")
