@@ -1,5 +1,6 @@
 # PannkakaBankBank
-![Image](bankbanklogo.png) 
+
+![Image](logo.png) 
 
 ## IMPORTANT
 
