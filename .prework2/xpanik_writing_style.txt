@@ -1,0 +1,16 @@
+# Final message with instructions:
+# Press Ctrl+Meta+Alt+Space to toggle panik mode.
+# Press Ctrl+Meta+Alt+p to deactivate panik mode.
+# Press Ctrl+Meta+Alt+o to activate panik mode.
+# Run 'panik' in the terminal to toggle panik mode.
+# Run 'panik_off' in the terminal to deactivate panik mode.
+# Run 'panik_on' in the terminal to activate panik mode.
+# Enjoy your panik button! 😎
+# 💥 Panik mode activated! Press Ctrl+Meta+Alt+O to OMG ON!
+# 🔴 Removing CPU and network limits...
+# 🔥 Limiting CPU usage of top resource-consuming processes...
+# 💻 Limiting network traffic...
+# 😴 Panik mode deactivated. Press Ctrl+Meta+Alt+P to pause.
+# 🎉 Final message with instructions:
+# TRY RUNNING IT LIKE THIS: sudo -E python3 panik_button_cooler_setup.py
+# Goodbye, cruel world!

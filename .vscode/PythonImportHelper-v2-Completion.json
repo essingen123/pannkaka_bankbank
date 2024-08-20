@@ -1,0 +1,740 @@
+[
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "list_current_keybindings",
+        "kind": 2,
+        "importPath": ".prework.blablaworkbefore",
+        "description": ".prework.blablaworkbefore",
+        "peekOfCode": "def list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:\n        print(f\"\\033[91mError listing key bindings: {e}\\033[0m\")\ndef the_thing_that_trix_sometimes_holy_grail():\n    base_path = \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom\"\n    shortcuts = [",
+        "detail": ".prework.blablaworkbefore",
+        "documentation": {}
+    },
+    {
+        "label": "the_thing_that_trix_sometimes_holy_grail",
+        "kind": 2,
+        "importPath": ".prework.blablaworkbefore",
+        "description": ".prework.blablaworkbefore",
+        "peekOfCode": "def the_thing_that_trix_sometimes_holy_grail():\n    base_path = \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom\"\n    shortcuts = [\n        {\"name\": \"Panik Button Toggle\", \"command\": f\"gnome-terminal -- bash -c '{script_path}'\", \"key\": TOGGLE_KEY, \"index\": 0},\n        {\"name\": \"Panik Button Deactivate\", \"command\": f\"gnome-terminal -- bash -c 'rm /tmp/panik_mode && {script_path}'\", \"key\": DEACTIVATE_KEY, \"index\": 1},\n        {\"name\": \"Panik Button Activate\", \"command\": f\"gnome-terminal -- bash -c '{script_path}'\", \"key\": ACTIVATE_KEY, \"index\": 2},\n    ]\n    for shortcut in shortcuts:\n        path = f\"{base_path}{shortcut['index']}\"\n        subprocess.run([\"dconf\", \"write\", f\"{path}/name\", f\"'{shortcut['name']}'\"], check=True)",
+        "detail": ".prework.blablaworkbefore",
+        "documentation": {}
+    },
+    {
+        "label": "install_panik_button",
+        "kind": 2,
+        "importPath": ".prework.blablaworkbefore",
+        "description": ".prework.blablaworkbefore",
+        "peekOfCode": "def install_panik_button():\n    try:\n        # List current key bindings\n        list_current_keybindings()\n        # Make the script executable\n        subprocess.run([\"chmod\", \"+x\", script_path], check=True)\n        # Create the bashrc aliases\n        bashrc_path = os.path.expanduser(\"~/.bashrc\")\n        with open(bashrc_path, \"a\") as bashrc_file:\n            bashrc_file.write(\"\\n# Panik Button Aliases\\n\")",
+        "detail": ".prework.blablaworkbefore",
+        "documentation": {}
+    },
+    {
+        "label": "TOGGLE_KEY",
+        "kind": 5,
+        "importPath": ".prework.blablaworkbefore",
+        "description": ".prework.blablaworkbefore",
+        "peekOfCode": "TOGGLE_KEY = \"<Ctrl><Shift><Alt>space\"\nDEACTIVATE_KEY = \"<Ctrl><Shift><Alt>p\"\nACTIVATE_KEY = \"<Ctrl><Shift><Alt>o\"\n# Create the script file\nscript_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\ndef list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)",
+        "detail": ".prework.blablaworkbefore",
+        "documentation": {}
+    },
+    {
+        "label": "DEACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.blablaworkbefore",
+        "description": ".prework.blablaworkbefore",
+        "peekOfCode": "DEACTIVATE_KEY = \"<Ctrl><Shift><Alt>p\"\nACTIVATE_KEY = \"<Ctrl><Shift><Alt>o\"\n# Create the script file\nscript_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\ndef list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:",
+        "detail": ".prework.blablaworkbefore",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.blablaworkbefore",
+        "description": ".prework.blablaworkbefore",
+        "peekOfCode": "ACTIVATE_KEY = \"<Ctrl><Shift><Alt>o\"\n# Create the script file\nscript_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\ndef list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:\n        print(f\"\\033[91mError listing key bindings: {e}\\033[0m\")",
+        "detail": ".prework.blablaworkbefore",
+        "documentation": {}
+    },
+    {
+        "label": "script_path",
+        "kind": 5,
+        "importPath": ".prework.blablaworkbefore",
+        "description": ".prework.blablaworkbefore",
+        "peekOfCode": "script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\ndef list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:\n        print(f\"\\033[91mError listing key bindings: {e}\\033[0m\")\ndef the_thing_that_trix_sometimes_holy_grail():\n    base_path = \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom\"",
+        "detail": ".prework.blablaworkbefore",
+        "documentation": {}
+    },
+    {
+        "label": "panik_button_script",
+        "kind": 5,
+        "importPath": ".prework.blablaworkbefore",
+        "description": ".prework.blablaworkbefore",
+        "peekOfCode": "panik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"\nlimit_cpu() {\n    echo \"Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": ".prework.blablaworkbefore",
+        "documentation": {}
+    },
+    {
+        "label": "list_current_keybindings",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup2",
+        "description": ".prework.panik_button_cooler_setup2",
+        "peekOfCode": "def list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:\n        print(f\"\\033[91mError listing key bindings: {e}\\033[0m\")\ndef the_thing_that_trix_sometimes_holy_grail():\n    base_path = \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom\"\n    shortcuts = [",
+        "detail": ".prework.panik_button_cooler_setup2",
+        "documentation": {}
+    },
+    {
+        "label": "the_thing_that_trix_sometimes_holy_grail",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup2",
+        "description": ".prework.panik_button_cooler_setup2",
+        "peekOfCode": "def the_thing_that_trix_sometimes_holy_grail():\n    base_path = \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom\"\n    shortcuts = [\n        {\"name\": \"Panik Button Toggle\", \"command\": f\"gnome-terminal -- bash -c '{script_path}'\", \"key\": TOGGLE_KEY, \"index\": 0},\n        {\"name\": \"Panik Button Deactivate\", \"command\": f\"gnome-terminal -- bash -c 'rm /tmp/panik_mode && {script_path}'\", \"key\": DEACTIVATE_KEY, \"index\": 1},\n        {\"name\": \"Panik Button Activate\", \"command\": f\"gnome-terminal -- bash -c '{script_path}'\", \"key\": ACTIVATE_KEY, \"index\": 2},\n    ]\n    for shortcut in shortcuts:\n        path = f\"{base_path}{shortcut['index']}\"\n        subprocess.run([\"dconf\", \"write\", f\"{path}/name\", f\"'{shortcut['name']}'\"], check=True)",
+        "detail": ".prework.panik_button_cooler_setup2",
+        "documentation": {}
+    },
+    {
+        "label": "install_panik_button",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup2",
+        "description": ".prework.panik_button_cooler_setup2",
+        "peekOfCode": "def install_panik_button():\n    try:\n        # List current key bindings\n        list_current_keybindings()\n        # Make the script executable\n        subprocess.run([\"chmod\", \"+x\", script_path], check=True)\n        # Create the bashrc aliases\n        bashrc_path = os.path.expanduser(\"~/.bashrc\")\n        with open(bashrc_path, \"a\") as bashrc_file:\n            bashrc_file.write(\"\\n# Panik Button Aliases\\n\")",
+        "detail": ".prework.panik_button_cooler_setup2",
+        "documentation": {}
+    },
+    {
+        "label": "TOGGLE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup2",
+        "description": ".prework.panik_button_cooler_setup2",
+        "peekOfCode": "TOGGLE_KEY = \"<Ctrl><Shift><Alt>space\"\nDEACTIVATE_KEY = \"<Ctrl><Shift><Alt>p\"\nACTIVATE_KEY = \"<Ctrl><Shift><Alt>o\"\n# Create the script file\nscript_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\ndef list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)",
+        "detail": ".prework.panik_button_cooler_setup2",
+        "documentation": {}
+    },
+    {
+        "label": "DEACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup2",
+        "description": ".prework.panik_button_cooler_setup2",
+        "peekOfCode": "DEACTIVATE_KEY = \"<Ctrl><Shift><Alt>p\"\nACTIVATE_KEY = \"<Ctrl><Shift><Alt>o\"\n# Create the script file\nscript_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\ndef list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:",
+        "detail": ".prework.panik_button_cooler_setup2",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup2",
+        "description": ".prework.panik_button_cooler_setup2",
+        "peekOfCode": "ACTIVATE_KEY = \"<Ctrl><Shift><Alt>o\"\n# Create the script file\nscript_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\ndef list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:\n        print(f\"\\033[91mError listing key bindings: {e}\\033[0m\")",
+        "detail": ".prework.panik_button_cooler_setup2",
+        "documentation": {}
+    },
+    {
+        "label": "script_path",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup2",
+        "description": ".prework.panik_button_cooler_setup2",
+        "peekOfCode": "script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\ndef list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:\n        print(f\"\\033[91mError listing key bindings: {e}\\033[0m\")\ndef the_thing_that_trix_sometimes_holy_grail():\n    base_path = \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom\"",
+        "detail": ".prework.panik_button_cooler_setup2",
+        "documentation": {}
+    },
+    {
+        "label": "panik_button_script",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup2",
+        "description": ".prework.panik_button_cooler_setup2",
+        "peekOfCode": "panik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"\nlimit_cpu() {\n    echo \"Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": ".prework.panik_button_cooler_setup2",
+        "documentation": {}
+    },
+    {
+        "label": "list_current_keybindings",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup3",
+        "description": ".prework.panik_button_cooler_setup3",
+        "peekOfCode": "def list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:\n        print(f\"\\033[91mError listing key bindings: {e}\\033[0m\")\ndef the_thing_that_trix_sometimes_holy_grail():\n    base_path = \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom\"\n    shortcuts = [",
+        "detail": ".prework.panik_button_cooler_setup3",
+        "documentation": {}
+    },
+    {
+        "label": "the_thing_that_trix_sometimes_holy_grail",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup3",
+        "description": ".prework.panik_button_cooler_setup3",
+        "peekOfCode": "def the_thing_that_trix_sometimes_holy_grail():\n    base_path = \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom\"\n    shortcuts = [\n        {\"name\": \"Panik Button Toggle\", \"command\": f\"gnome-terminal -- bash -c '{script_path}'\", \"key\": TOGGLE_KEY, \"index\": 0},\n        {\"name\": \"Panik Button Deactivate\", \"command\": f\"gnome-terminal -- bash -c 'rm /tmp/panik_mode && {script_path}'\", \"key\": DEACTIVATE_KEY, \"index\": 1},\n        {\"name\": \"Panik Button Activate\", \"command\": f\"gnome-terminal -- bash -c '{script_path}'\", \"key\": ACTIVATE_KEY, \"index\": 2},\n    ]\n    for shortcut in shortcuts:\n        path = f\"{base_path}{shortcut['index']}\"\n        subprocess.run([\"dconf\", \"write\", f\"{path}/name\", f\"'{shortcut['name']}'\"], check=True)",
+        "detail": ".prework.panik_button_cooler_setup3",
+        "documentation": {}
+    },
+    {
+        "label": "install_panik_button",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup3",
+        "description": ".prework.panik_button_cooler_setup3",
+        "peekOfCode": "def install_panik_button():\n    try:\n        # List current key bindings\n        list_current_keybindings()\n        # Create the script file\n        script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\n        with open(script_path, \"w\") as script_file:\n            script_file.write(panik_button_script)\n        # Make the script executable\n        subprocess.run([\"chmod\", \"+x\", script_path], check=True)",
+        "detail": ".prework.panik_button_cooler_setup3",
+        "documentation": {}
+    },
+    {
+        "label": "TOGGLE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup3",
+        "description": ".prework.panik_button_cooler_setup3",
+        "peekOfCode": "TOGGLE_KEY = \"<Ctrl><Shift><Alt>space\"\nDEACTIVATE_KEY = \"<Ctrl><Shift><Alt>p\"\nACTIVATE_KEY = \"<Ctrl><Shift><Alt>o\"\ndef list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:\n        print(f\"\\033[91mError listing key bindings: {e}\\033[0m\")",
+        "detail": ".prework.panik_button_cooler_setup3",
+        "documentation": {}
+    },
+    {
+        "label": "DEACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup3",
+        "description": ".prework.panik_button_cooler_setup3",
+        "peekOfCode": "DEACTIVATE_KEY = \"<Ctrl><Shift><Alt>p\"\nACTIVATE_KEY = \"<Ctrl><Shift><Alt>o\"\ndef list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:\n        print(f\"\\033[91mError listing key bindings: {e}\\033[0m\")\ndef the_thing_that_trix_sometimes_holy_grail():",
+        "detail": ".prework.panik_button_cooler_setup3",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup3",
+        "description": ".prework.panik_button_cooler_setup3",
+        "peekOfCode": "ACTIVATE_KEY = \"<Ctrl><Shift><Alt>o\"\ndef list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:\n        print(f\"\\033[91mError listing key bindings: {e}\\033[0m\")\ndef the_thing_that_trix_sometimes_holy_grail():\n    base_path = \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom\"",
+        "detail": ".prework.panik_button_cooler_setup3",
+        "documentation": {}
+    },
+    {
+        "label": "panik_button_script",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup3",
+        "description": ".prework.panik_button_cooler_setup3",
+        "peekOfCode": "panik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"\nlimit_cpu() {\n    echo \"Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": ".prework.panik_button_cooler_setup3",
+        "documentation": {}
+    },
+    {
+        "label": "install_panik_button",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup4",
+        "description": ".prework.panik_button_cooler_setup4",
+        "peekOfCode": "def install_panik_button():\n    # Create the script file\n    script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\n    with open(script_path, \"w\") as script_file:\n        script_file.write(panik_button_script)\n    # Make the script executable\n    subprocess.run([\"chmod\", \"+x\", script_path])\n    # Create the bashrc aliases\n    bashrc_path = os.path.expanduser(\"~/.bashrc\")\n    with open(bashrc_path, \"a\") as bashrc_file:",
+        "detail": ".prework.panik_button_cooler_setup4",
+        "documentation": {}
+    },
+    {
+        "label": "TOGGLE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup4",
+        "description": ".prework.panik_button_cooler_setup4",
+        "peekOfCode": "TOGGLE_KEY = \"'<Ctrl><Shift><Alt>space'\"\nDEACTIVATE_KEY = \"'<Ctrl><Shift><Alt>p'\"\nACTIVATE_KEY = \"'<Ctrl><Shift><Alt>o'\"\n# not meta or super for the windows button?????? the left one????\n# Define the script to be installed\npanik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"",
+        "detail": ".prework.panik_button_cooler_setup4",
+        "documentation": {}
+    },
+    {
+        "label": "DEACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup4",
+        "description": ".prework.panik_button_cooler_setup4",
+        "peekOfCode": "DEACTIVATE_KEY = \"'<Ctrl><Shift><Alt>p'\"\nACTIVATE_KEY = \"'<Ctrl><Shift><Alt>o'\"\n# not meta or super for the windows button?????? the left one????\n# Define the script to be installed\npanik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"\nlimit_cpu() {",
+        "detail": ".prework.panik_button_cooler_setup4",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup4",
+        "description": ".prework.panik_button_cooler_setup4",
+        "peekOfCode": "ACTIVATE_KEY = \"'<Ctrl><Shift><Alt>o'\"\n# not meta or super for the windows button?????? the left one????\n# Define the script to be installed\npanik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"\nlimit_cpu() {\necho \"Limiting CPU usage of top resource-consuming processes...\"",
+        "detail": ".prework.panik_button_cooler_setup4",
+        "documentation": {}
+    },
+    {
+        "label": "panik_button_script",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup4",
+        "description": ".prework.panik_button_cooler_setup4",
+        "peekOfCode": "panik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"\nlimit_cpu() {\necho \"Limiting CPU usage of top resource-consuming processes...\"\ntop_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\nlevel=$(cat $LEVEL_FILE)\nwhile IFS= read -r line; do",
+        "detail": ".prework.panik_button_cooler_setup4",
+        "documentation": {}
+    },
+    {
+        "label": "install_panik_button",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup5",
+        "description": ".prework.panik_button_cooler_setup5",
+        "peekOfCode": "def install_panik_button():\n    # Create the script file\n    script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\n    with open(script_path, \"w\") as script_file:\n        script_file.write(panik_button_script)\n    # Make the script executable\n    subprocess.run([\"chmod\", \"+x\", script_path])\n    # Create the bashrc aliases\n    bashrc_path = os.path.expanduser(\"~/.bashrc\")\n    with open(bashrc_path, \"a\") as bashrc_file:",
+        "detail": ".prework.panik_button_cooler_setup5",
+        "documentation": {}
+    },
+    {
+        "label": "TOGGLE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup5",
+        "description": ".prework.panik_button_cooler_setup5",
+        "peekOfCode": "TOGGLE_KEY = \"'<Ctrl><Shift><Alt>space'\"\nDEACTIVATE_KEY = \"'<Ctrl><Shift><Alt>p'\"\nACTIVATE_KEY = \"'<Ctrl><Shift><Alt>o'\"\n# not meta or super for the windows button?????? the left one????\n# Define the script to be installed\npanik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"",
+        "detail": ".prework.panik_button_cooler_setup5",
+        "documentation": {}
+    },
+    {
+        "label": "DEACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup5",
+        "description": ".prework.panik_button_cooler_setup5",
+        "peekOfCode": "DEACTIVATE_KEY = \"'<Ctrl><Shift><Alt>p'\"\nACTIVATE_KEY = \"'<Ctrl><Shift><Alt>o'\"\n# not meta or super for the windows button?????? the left one????\n# Define the script to be installed\npanik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"\nlimit_cpu() {",
+        "detail": ".prework.panik_button_cooler_setup5",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup5",
+        "description": ".prework.panik_button_cooler_setup5",
+        "peekOfCode": "ACTIVATE_KEY = \"'<Ctrl><Shift><Alt>o'\"\n# not meta or super for the windows button?????? the left one????\n# Define the script to be installed\npanik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"\nlimit_cpu() {\n    echo \"Limiting CPU usage of top resource-consuming processes...\"",
+        "detail": ".prework.panik_button_cooler_setup5",
+        "documentation": {}
+    },
+    {
+        "label": "panik_button_script",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup5",
+        "description": ".prework.panik_button_cooler_setup5",
+        "peekOfCode": "panik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"\nlimit_cpu() {\n    echo \"Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": ".prework.panik_button_cooler_setup5",
+        "documentation": {}
+    },
+    {
+        "label": "install_panik_button",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup6",
+        "description": ".prework.panik_button_cooler_setup6",
+        "peekOfCode": "def install_panik_button():\n    # Create the script file\n    script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\n    with open(script_path, \"w\") as script_file:\n        script_file.write(panik_button_script)\n    # Make the script executable\n    subprocess.run([\"chmod\", \"+x\", script_path])\n    # Create the bashrc aliases\n    bashrc_path = os.path.expanduser(\"~/.bashrc\")\n    with open(bashrc_path, \"a\") as bashrc_file:",
+        "detail": ".prework.panik_button_cooler_setup6",
+        "documentation": {}
+    },
+    {
+        "label": "DEACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup6",
+        "description": ".prework.panik_button_cooler_setup6",
+        "peekOfCode": "DEACTIVATE_KEY = \"<Ctrl><Super><Alt>p\"\nACTIVATE_KEY = \"<Ctrl><Super><Alt>o\"\nTOGGLE_KEY = \"'ctrl+super+alt space'\"\n# DEACTIVATE_KEY = \"'ctrl+super+alt p'\"\n# ACTIVATE_KEY = \"'ctrl+super+alt o'\"\n# Define the script to be installed\npanik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")",
+        "detail": ".prework.panik_button_cooler_setup6",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup6",
+        "description": ".prework.panik_button_cooler_setup6",
+        "peekOfCode": "ACTIVATE_KEY = \"<Ctrl><Super><Alt>o\"\nTOGGLE_KEY = \"'ctrl+super+alt space'\"\n# DEACTIVATE_KEY = \"'ctrl+super+alt p'\"\n# ACTIVATE_KEY = \"'ctrl+super+alt o'\"\n# Define the script to be installed\npanik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"",
+        "detail": ".prework.panik_button_cooler_setup6",
+        "documentation": {}
+    },
+    {
+        "label": "TOGGLE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup6",
+        "description": ".prework.panik_button_cooler_setup6",
+        "peekOfCode": "TOGGLE_KEY = \"'ctrl+super+alt space'\"\n# DEACTIVATE_KEY = \"'ctrl+super+alt p'\"\n# ACTIVATE_KEY = \"'ctrl+super+alt o'\"\n# Define the script to be installed\npanik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"\nlimit_cpu() {",
+        "detail": ".prework.panik_button_cooler_setup6",
+        "documentation": {}
+    },
+    {
+        "label": "panik_button_script",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup6",
+        "description": ".prework.panik_button_cooler_setup6",
+        "peekOfCode": "panik_button_script = \"\"\"\n#!/bin/bash\npanik_FILE=\"/tmp/panik_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panik_level\"\nlimit_cpu() {\n    echo \"Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": ".prework.panik_button_cooler_setup6",
+        "documentation": {}
+    },
+    {
+        "label": "install_panic_button",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup7",
+        "description": ".prework.panik_button_cooler_setup7",
+        "peekOfCode": "def install_panic_button():\n    # Create the script file\n    script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\n    with open(script_path, \"w\") as script_file:\n        script_file.write(panic_button_script)\n    # Make the script executable\n    run_command([\"chmod\", \"+x\", script_path])\n    # Create the bashrc aliases\n    bashrc_path = os.path.expanduser(\"~/.bashrc\")\n    with open(bashrc_path, \"a\") as bashrc_file:",
+        "detail": ".prework.panik_button_cooler_setup7",
+        "documentation": {}
+    },
+    {
+        "label": "run_command",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup7",
+        "description": ".prework.panik_button_cooler_setup7",
+        "peekOfCode": "def run_command(command):\n    try:\n        subprocess.run(command, check=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\n# Run the installation script\ninstall_panic_button()",
+        "detail": ".prework.panik_button_cooler_setup7",
+        "documentation": {}
+    },
+    {
+        "label": "TOGGLE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup7",
+        "description": ".prework.panik_button_cooler_setup7",
+        "peekOfCode": "TOGGLE_KEY = \"<Ctrl><Super><Alt>space\"\nDEACTIVATE_KEY = \"<Ctrl><Super><Alt>p\"\nACTIVATE_KEY = \"<Ctrl><Super><Alt>o\"\n# Define the script to be installed\npanic_button_script = \"\"\"\n#!/bin/bash\nPANIC_FILE=\"/tmp/panic_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panic_level\"\nlimit_cpu() {",
+        "detail": ".prework.panik_button_cooler_setup7",
+        "documentation": {}
+    },
+    {
+        "label": "DEACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup7",
+        "description": ".prework.panik_button_cooler_setup7",
+        "peekOfCode": "DEACTIVATE_KEY = \"<Ctrl><Super><Alt>p\"\nACTIVATE_KEY = \"<Ctrl><Super><Alt>o\"\n# Define the script to be installed\npanic_button_script = \"\"\"\n#!/bin/bash\nPANIC_FILE=\"/tmp/panic_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panic_level\"\nlimit_cpu() {\n    echo \"🔥 Limiting CPU usage of top resource-consuming processes...\"",
+        "detail": ".prework.panik_button_cooler_setup7",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup7",
+        "description": ".prework.panik_button_cooler_setup7",
+        "peekOfCode": "ACTIVATE_KEY = \"<Ctrl><Super><Alt>o\"\n# Define the script to be installed\npanic_button_script = \"\"\"\n#!/bin/bash\nPANIC_FILE=\"/tmp/panic_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panic_level\"\nlimit_cpu() {\n    echo \"🔥 Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)",
+        "detail": ".prework.panik_button_cooler_setup7",
+        "documentation": {}
+    },
+    {
+        "label": "panic_button_script",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup7",
+        "description": ".prework.panik_button_cooler_setup7",
+        "peekOfCode": "panic_button_script = \"\"\"\n#!/bin/bash\nPANIC_FILE=\"/tmp/panic_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panic_level\"\nlimit_cpu() {\n    echo \"🔥 Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": ".prework.panik_button_cooler_setup7",
+        "documentation": {}
+    },
+    {
+        "label": "install_panic_button",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup9",
+        "description": ".prework.panik_button_cooler_setup9",
+        "peekOfCode": "def install_panic_button():\n    # Create the script file\n    script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\n    with open(script_path, \"w\") as script_file:\n        script_file.write(panic_button_script)\n    # Make the script executable\n    run_command([\"chmod\", \"+x\", script_path])\n    # Create the bashrc aliases\n    bashrc_path = os.path.expanduser(\"~/.bashrc\")\n    with open(bashrc_path, \"a\") as bashrc_file:",
+        "detail": ".prework.panik_button_cooler_setup9",
+        "documentation": {}
+    },
+    {
+        "label": "run_command",
+        "kind": 2,
+        "importPath": ".prework.panik_button_cooler_setup9",
+        "description": ".prework.panik_button_cooler_setup9",
+        "peekOfCode": "def run_command(command):\n    try:\n        subprocess.run(command, check=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\n# Run the installation script\ninstall_panic_button()",
+        "detail": ".prework.panik_button_cooler_setup9",
+        "documentation": {}
+    },
+    {
+        "label": "panic_button_script",
+        "kind": 5,
+        "importPath": ".prework.panik_button_cooler_setup9",
+        "description": ".prework.panik_button_cooler_setup9",
+        "peekOfCode": "panic_button_script = \"\"\"\n#!/bin/bash\nPANIC_FILE=\"/tmp/panic_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panic_level\"\nlimit_cpu() {\n    echo \"🔥 Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": ".prework.panik_button_cooler_setup9",
+        "documentation": {}
+    },
+    {
+        "label": "run_command",
+        "kind": 2,
+        "importPath": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "description": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "peekOfCode": "def run_command(command):\n    try:\n        subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # Check if running with sudo\n    if os.geteuid() != 0:\n        print(\"This script requires sudo privileges. Relaunching with sudo...\")\n        os.execlp(\"sudo\", \"sudo\", *sys.argv)",
+        "detail": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "documentation": {}
+    },
+    {
+        "label": "install_pannkaka_button",
+        "kind": 2,
+        "importPath": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "description": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "peekOfCode": "def install_pannkaka_button():\n    # Check if running with sudo\n    if os.geteuid() != 0:\n        print(\"This script requires sudo privileges. Relaunching with sudo...\")\n        os.execlp(\"sudo\", \"sudo\", *sys.argv)\n    script_path = os.path.expanduser(\"~/pannkaka_button_cooler.sh\")\n    # Create the script file\n    with open(script_path, \"w\") as script_file:\n        script_file.write(pannkaka_button_script)\n    # Make the script executable",
+        "detail": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "documentation": {}
+    },
+    {
+        "label": "pannkaka_button_script",
+        "kind": 5,
+        "importPath": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "description": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "peekOfCode": "pannkaka_button_script = \"\"\"\n#!/bin/bash\nPANNKAKA_FILE=\"/tmp/pannkaka_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/pannkaka_level\"\nlimit_cpu() {\n    echo \"🔥 Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "documentation": {}
+    },
+    {
+        "label": "TOGGLE_KEY",
+        "kind": 5,
+        "importPath": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "description": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "peekOfCode": "TOGGLE_KEY = \"\\\"'<Ctrl><Super><Alt>space'\\\"\"\nDEACTIVATE_KEY = \"\\\"'<Ctrl><Super><Alt>p'\\\"\"\nACTIVATE_KEY = \"\\\"'<Ctrl><Super><Alt>o'\\\"\"\ndef run_command(command):\n    try:\n        subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # Check if running with sudo",
+        "detail": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "documentation": {}
+    },
+    {
+        "label": "DEACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "description": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "peekOfCode": "DEACTIVATE_KEY = \"\\\"'<Ctrl><Super><Alt>p'\\\"\"\nACTIVATE_KEY = \"\\\"'<Ctrl><Super><Alt>o'\\\"\"\ndef run_command(command):\n    try:\n        subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # Check if running with sudo\n    if os.geteuid() != 0:",
+        "detail": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "description": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "peekOfCode": "ACTIVATE_KEY = \"\\\"'<Ctrl><Super><Alt>o'\\\"\"\ndef run_command(command):\n    try:\n        subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # Check if running with sudo\n    if os.geteuid() != 0:\n        print(\"This script requires sudo privileges. Relaunching with sudo...\")",
+        "detail": ".prework2.doktor_pannkaka_kod_roed_intergalactic_defense_sustem_sir_her_o",
+        "documentation": {}
+    },
+    {
+        "label": "run_command",
+        "kind": 2,
+        "importPath": ".prework2.paniknappen_raeodkod",
+        "description": ".prework2.paniknappen_raeodkod",
+        "peekOfCode": "def run_command(command, input=None):\n    try:\n        subprocess.run(command, check=True, input=input)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_panic_button():\n    script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\n    # Create the script file\n    with open(script_path, \"w\") as script_file:\n        script_file.write(panic_button_script)",
+        "detail": ".prework2.paniknappen_raeodkod",
+        "documentation": {}
+    },
+    {
+        "label": "install_panic_button",
+        "kind": 2,
+        "importPath": ".prework2.paniknappen_raeodkod",
+        "description": ".prework2.paniknappen_raeodkod",
+        "peekOfCode": "def install_panic_button():\n    script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\n    # Create the script file\n    with open(script_path, \"w\") as script_file:\n        script_file.write(panic_button_script)\n    # Make the script executable\n    run_command([\"chmod\", \"+x\", script_path])\n    # Add aliases to .bashrc\n    bashrc_path = os.path.expanduser(\"~/.bashrc\")\n    with open(bashrc_path, \"a\") as bashrc_file:",
+        "detail": ".prework2.paniknappen_raeodkod",
+        "documentation": {}
+    },
+    {
+        "label": "panic_button_script",
+        "kind": 5,
+        "importPath": ".prework2.paniknappen_raeodkod",
+        "description": ".prework2.paniknappen_raeodkod",
+        "peekOfCode": "panic_button_script = \"\"\"\n#!/bin/bash\nPANIC_FILE=\"/tmp/panic_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/panic_level\"\nlimit_cpu() {\n    echo \"🔥 Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": ".prework2.paniknappen_raeodkod",
+        "documentation": {}
+    },
+    {
+        "label": "TOGGLE_KEY",
+        "kind": 5,
+        "importPath": ".prework2.paniknappen_raeodkod",
+        "description": ".prework2.paniknappen_raeodkod",
+        "peekOfCode": "TOGGLE_KEY = \"<Ctrl><Super><Alt>space\"\nDEACTIVATE_KEY = \"<Ctrl><Super><Alt>p\"\nACTIVATE_KEY = \"<Ctrl><Super><Alt>o\"\ndef run_command(command, input=None):\n    try:\n        subprocess.run(command, check=True, input=input)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_panic_button():\n    script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")",
+        "detail": ".prework2.paniknappen_raeodkod",
+        "documentation": {}
+    },
+    {
+        "label": "DEACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework2.paniknappen_raeodkod",
+        "description": ".prework2.paniknappen_raeodkod",
+        "peekOfCode": "DEACTIVATE_KEY = \"<Ctrl><Super><Alt>p\"\nACTIVATE_KEY = \"<Ctrl><Super><Alt>o\"\ndef run_command(command, input=None):\n    try:\n        subprocess.run(command, check=True, input=input)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_panic_button():\n    script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\n    # Create the script file",
+        "detail": ".prework2.paniknappen_raeodkod",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework2.paniknappen_raeodkod",
+        "description": ".prework2.paniknappen_raeodkod",
+        "peekOfCode": "ACTIVATE_KEY = \"<Ctrl><Super><Alt>o\"\ndef run_command(command, input=None):\n    try:\n        subprocess.run(command, check=True, input=input)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_panic_button():\n    script_path = os.path.expanduser(\"~/panik_button_cooler.sh\")\n    # Create the script file\n    with open(script_path, \"w\") as script_file:",
+        "detail": ".prework2.paniknappen_raeodkod",
+        "documentation": {}
+    },
+    {
+        "label": "install_panik_button",
+        "kind": 2,
+        "importPath": ".prework2.x_panik_button_cooler_setup",
+        "description": ".prework2.x_panik_button_cooler_setup",
+        "peekOfCode": "def install_panik_button():\n    try:\n        # Set up custom keybindings (Gnome specific)\n        subprocess.run(\n            f\"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding {TOGGLE_KEY} && dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command '/usr/bin/notify-send 111; {script_path}'\",\n            shell=True\n        )\n        subprocess.run(\n            f\"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding {DEACTIVATE_KEY} && dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command '/usr/bin/notify-send DeactivatePanikMode; rm /tmp/panik_mode && {script_path}'\",\n            shell=True",
+        "detail": ".prework2.x_panik_button_cooler_setup",
+        "documentation": {}
+    },
+    {
+        "label": "script_path",
+        "kind": 5,
+        "importPath": ".prework2.x_panik_button_cooler_setup",
+        "description": ".prework2.x_panik_button_cooler_setup",
+        "peekOfCode": "script_path = os.path.join(os.path.dirname(__file__), \"xpanik_button_cooler.sh\")\nTOGGLE_KEY = \"\\\"'<Primary><Super><Alt>space'\\\"\"\nDEACTIVATE_KEY = \"\\\"'<Primary><Super><Alt>p'\\\"\"\nACTIVATE_KEY = \"\\\"'<Primary><Super><Alt>o'\\\"\"\ndef install_panik_button():\n    try:\n        # Set up custom keybindings (Gnome specific)\n        subprocess.run(\n            f\"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding {TOGGLE_KEY} && dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command '/usr/bin/notify-send 111; {script_path}'\",\n            shell=True",
+        "detail": ".prework2.x_panik_button_cooler_setup",
+        "documentation": {}
+    },
+    {
+        "label": "TOGGLE_KEY",
+        "kind": 5,
+        "importPath": ".prework2.x_panik_button_cooler_setup",
+        "description": ".prework2.x_panik_button_cooler_setup",
+        "peekOfCode": "TOGGLE_KEY = \"\\\"'<Primary><Super><Alt>space'\\\"\"\nDEACTIVATE_KEY = \"\\\"'<Primary><Super><Alt>p'\\\"\"\nACTIVATE_KEY = \"\\\"'<Primary><Super><Alt>o'\\\"\"\ndef install_panik_button():\n    try:\n        # Set up custom keybindings (Gnome specific)\n        subprocess.run(\n            f\"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding {TOGGLE_KEY} && dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command '/usr/bin/notify-send 111; {script_path}'\",\n            shell=True\n        )",
+        "detail": ".prework2.x_panik_button_cooler_setup",
+        "documentation": {}
+    },
+    {
+        "label": "DEACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework2.x_panik_button_cooler_setup",
+        "description": ".prework2.x_panik_button_cooler_setup",
+        "peekOfCode": "DEACTIVATE_KEY = \"\\\"'<Primary><Super><Alt>p'\\\"\"\nACTIVATE_KEY = \"\\\"'<Primary><Super><Alt>o'\\\"\"\ndef install_panik_button():\n    try:\n        # Set up custom keybindings (Gnome specific)\n        subprocess.run(\n            f\"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding {TOGGLE_KEY} && dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command '/usr/bin/notify-send 111; {script_path}'\",\n            shell=True\n        )\n        subprocess.run(",
+        "detail": ".prework2.x_panik_button_cooler_setup",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework2.x_panik_button_cooler_setup",
+        "description": ".prework2.x_panik_button_cooler_setup",
+        "peekOfCode": "ACTIVATE_KEY = \"\\\"'<Primary><Super><Alt>o'\\\"\"\ndef install_panik_button():\n    try:\n        # Set up custom keybindings (Gnome specific)\n        subprocess.run(\n            f\"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding {TOGGLE_KEY} && dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command '/usr/bin/notify-send 111; {script_path}'\",\n            shell=True\n        )\n        subprocess.run(\n            f\"dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding {DEACTIVATE_KEY} && dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command '/usr/bin/notify-send DeactivatePanikMode; rm /tmp/panik_mode && {script_path}'\",",
+        "detail": ".prework2.x_panik_button_cooler_setup",
+        "documentation": {}
+    },
+    {
+        "label": "run_command",
+        "kind": 2,
+        "importPath": ".prework3.pannkaka_knapp_setup",
+        "description": ".prework3.pannkaka_knapp_setup",
+        "peekOfCode": "def run_command(command):\n    try:\n        subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # Check if running with sudo\n    if os.geteuid() != 0:\n        print(\"This script requires sudo privileges. Relaunching with sudo...\")\n        os.execlp(\"sudo\", \"sudo\", *sys.argv)",
+        "detail": ".prework3.pannkaka_knapp_setup",
+        "documentation": {}
+    },
+    {
+        "label": "install_pannkaka_button",
+        "kind": 2,
+        "importPath": ".prework3.pannkaka_knapp_setup",
+        "description": ".prework3.pannkaka_knapp_setup",
+        "peekOfCode": "def install_pannkaka_button():\n    # Check if running with sudo\n    if os.geteuid() != 0:\n        print(\"This script requires sudo privileges. Relaunching with sudo...\")\n        os.execlp(\"sudo\", \"sudo\", *sys.argv)\n    script_path = os.path.expanduser(\"~/pannkaka_button_cooler.sh\")\n    # Create the script file\n    with open(script_path, \"w\") as script_file:\n        script_file.write(pannkaka_button_script)\n    # Make the script executable",
+        "detail": ".prework3.pannkaka_knapp_setup",
+        "documentation": {}
+    },
+    {
+        "label": "pannkaka_button_script",
+        "kind": 5,
+        "importPath": ".prework3.pannkaka_knapp_setup",
+        "description": ".prework3.pannkaka_knapp_setup",
+        "peekOfCode": "pannkaka_button_script = \"\"\"\n#!/bin/bash\nPANNKAKA_FILE=\"/tmp/pannkaka_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/pannkaka_level\"\nlimit_cpu() {\n    echo \"🔥 Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": ".prework3.pannkaka_knapp_setup",
+        "documentation": {}
+    },
+    {
+        "label": "TOGGLE_KEY",
+        "kind": 5,
+        "importPath": ".prework3.pannkaka_knapp_setup",
+        "description": ".prework3.pannkaka_knapp_setup",
+        "peekOfCode": "TOGGLE_KEY = \"\\\"'<Ctrl><Super><Alt>space'\\\"\"\nDEACTIVATE_KEY = \"\\\"'<Ctrl><Super><Alt>p'\\\"\"\nACTIVATE_KEY = \"\\\"'<Ctrl><Super><Alt>o'\\\"\"\ndef run_command(command):\n    try:\n        subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # Check if running with sudo",
+        "detail": ".prework3.pannkaka_knapp_setup",
+        "documentation": {}
+    },
+    {
+        "label": "DEACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework3.pannkaka_knapp_setup",
+        "description": ".prework3.pannkaka_knapp_setup",
+        "peekOfCode": "DEACTIVATE_KEY = \"\\\"'<Ctrl><Super><Alt>p'\\\"\"\nACTIVATE_KEY = \"\\\"'<Ctrl><Super><Alt>o'\\\"\"\ndef run_command(command):\n    try:\n        subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # Check if running with sudo\n    if os.geteuid() != 0:",
+        "detail": ".prework3.pannkaka_knapp_setup",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIVATE_KEY",
+        "kind": 5,
+        "importPath": ".prework3.pannkaka_knapp_setup",
+        "description": ".prework3.pannkaka_knapp_setup",
+        "peekOfCode": "ACTIVATE_KEY = \"\\\"'<Ctrl><Super><Alt>o'\\\"\"\ndef run_command(command):\n    try:\n        subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # Check if running with sudo\n    if os.geteuid() != 0:\n        print(\"This script requires sudo privileges. Relaunching with sudo...\")",
+        "detail": ".prework3.pannkaka_knapp_setup",
+        "documentation": {}
+    },
+    {
+        "label": "run_command",
+        "kind": 2,
+        "importPath": "pannkaka_bankbank",
+        "description": "pannkaka_bankbank",
+        "peekOfCode": "def run_command(command):\n    try:\n        subprocess.run(command, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error running command: {command} (returncode {e.returncode})\")\ndef install_pannkaka_button():\n    # Check if running with sudo\n    if os.geteuid() != 0:\n        print(\"This script requires sudo privileges. Relaunching with sudo...\")\n        os.execlp(\"sudo\", \"sudo\", *sys.argv)",
+        "detail": "pannkaka_bankbank",
+        "documentation": {}
+    },
+    {
+        "label": "install_pannkaka_button",
+        "kind": 2,
+        "importPath": "pannkaka_bankbank",
+        "description": "pannkaka_bankbank",
+        "peekOfCode": "def install_pannkaka_button():\n    # Check if running with sudo\n    if os.geteuid() != 0:\n        print(\"This script requires sudo privileges. Relaunching with sudo...\")\n        os.execlp(\"sudo\", \"sudo\", *sys.argv)\n    script_path = os.path.expanduser(\"~/pannkaka_button_cooler.sh\")\n    # Create the script file\n    with open(script_path, \"w\") as script_file:\n        script_file.write(pannkaka_button_script)\n    # Make the script executable",
+        "detail": "pannkaka_bankbank",
+        "documentation": {}
+    },
+    {
+        "label": "pannkaka_button_script",
+        "kind": 5,
+        "importPath": "pannkaka_bankbank",
+        "description": "pannkaka_bankbank",
+        "peekOfCode": "pannkaka_button_script = \"\"\"\n#!/bin/bash\nPANNKAKA_FILE=\"/tmp/pannkaka_mode\"\nEXCLUDE_PROCESS_NAMES=(\"gnome-shell\" \"pulseaudio\" \"Xwayland\")\nLEVEL_FILE=\"/tmp/pannkaka_level\"\nlimit_cpu() {\n    echo \"🔥 Limiting CPU usage of top resource-consuming processes...\"\n    top_processes=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | awk 'NR>1 {print $1 \" \" $4}' | head -n 20)\n    level=$(cat $LEVEL_FILE)\n    while IFS= read -r line; do",
+        "detail": "pannkaka_bankbank",
+        "documentation": {}
+    },
+    {
+        "label": "list_keybindings",
+        "kind": 2,
+        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "peekOfCode": "def list_keybindings():\n    try:\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        keybindings = result.stdout.strip().splitlines()\n        id = 1\n        print(\"\\n✨❤️ Current key bindings: ❤️✨\")\n        for i in range(0, len(keybindings), 4):\n            print(f\"KB{id}:\")\n            for j in range(4):\n                print(f\"  {keybindings[i+j]}\")",
+        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "documentation": {}
+    },
+    {
+        "label": "delete_keybinding",
+        "kind": 2,
+        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "peekOfCode": "def delete_keybinding(keybinding_id):\n    try:\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        keybindings = result.stdout.strip().splitlines()\n        id = int(keybinding_id[2:])  # Remove the \"KB\" prefix\n        if id > 0 and id <= len(keybindings) // 4:\n            keybinding_name = keybindings[(id - 1) * 4]\n            result = subprocess.run([\"dconf\", \"write\", f\"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/{keybinding_name}\", \"'[]'\"], check=True)\n            print(f\"❤️ Keybinding '{keybinding_name}' deleted successfully, may it rest in peace ❤️\")\n        else:",
+        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "documentation": {}
+    },
+    {
+        "label": "edit_keybindings",
+        "kind": 2,
+        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "peekOfCode": "def edit_keybindings():\n    try:\n        # Export keybindings to a temporary file\n        with open(\"keybindings.tmp\", \"w\") as f:\n            subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], stdout=f, check=True)\n        # Open the file in nano editor\n        subprocess.run([\"nano\", \"keybindings.tmp\"], check=True)\n        # Import the changes back into the dconf database\n        with open(\"keybindings.tmp\", \"r\") as f:\n            subprocess.run([\"dconf\", \"load\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], stdin=f, check=True)",
+        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "peekOfCode": "def main():\n    while True:\n        print(\"\\n✨ Ubuntu Keybindings Editor ✨\")\n        print(\"1. List keybindings 🔍\")\n        print(\"2. Delete keybinding ⚠️\")\n        print(\"3. Edit keybindings ✍️\")\n        print(\"4. Quit 👋\")\n        choice = input(\"Enter your choice: \")\n        if choice == \"1\":\n            list_keybindings()",
+        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "documentation": {}
+    },
+    {
+        "label": "list_current_keybindings",
+        "kind": 2,
+        "importPath": "ubuntu_keybindings_viewer_kilian",
+        "description": "ubuntu_keybindings_viewer_kilian",
+        "peekOfCode": "def list_current_keybindings():\n    try:\n        print(\"\\nCurrent key bindings:\")\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        print(result.stdout)\n    except subprocess.CalledProcessError as e:\n        print(f\"\\033[91mError listing key bindings: {e}\\033[0m\")\nif __name__ == \"__main__\":\n    list_current_keybindings()",
+        "detail": "ubuntu_keybindings_viewer_kilian",
+        "documentation": {}
+    }
+]

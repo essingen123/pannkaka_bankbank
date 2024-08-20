@@ -1,0 +1,28 @@
+# Author: Kilian Fun & Cot, 2024
+# License: MIT+*303%
+
+# Note: Using dconf instead of gsettings to set custom keybindings
+# Reason: The schema /org/gnome/settings-daemon/plugins/media-keys.custom-keybindings was not found when using gsettings
+# Solution: Switching to dconf and using the correct schema and key paths fixed the issue
+
+# Non-working examples:
+# NOOoooo WRONG: TOGGLE_KEY = "<Ctrl>p"DONT YOU DARE
+# NOOoooo WRONG: CTIVATE_KEY = "<Meta>P"DONT YOU DARE
+# NOOoooo WRONG:TOGGLE_KEY = "Alt+P" DONT YOU DARE
+
+# Working example in xpanik_button_cooler_THIS_ONE_WORKS.txt
+Shit like this should work:
+
+dconf
+write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding 
+"'<Primary><Super><Alt>space'"
+ && 
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command "'/usr/bin/notify-send Yayayay; '";
+
+IN OTHER WORDS:
+TOGGLE_KEY = "\"'<Primary><Super><Alt>space'\""
+DEACTIVATE_KEY = "\"'<Primary><Super><Alt>p'\""
+ACTIVATE_KEY = "\"'<Primary><Super><Alt>o'\""
+
+
+et up custom keybindings keys MUST HAVE NESTED QUOTING!!!!!!!!! "'<Alt>o" G#LO"
