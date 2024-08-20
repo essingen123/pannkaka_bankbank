@@ -1,4 +1,4 @@
-# panik_button_cooler
+# PannkakaBankBank
 <!-- ![Image](github_repo_image.webp) -->
 
 ## IMPORTANT
