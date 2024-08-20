@@ -695,37 +695,37 @@
     {
         "label": "list_keybindings",
         "kind": 2,
-        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
-        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
+        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
         "peekOfCode": "def list_keybindings():\n    try:\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        keybindings = result.stdout.strip().splitlines()\n        id = 1\n        print(\"\\n✨❤️ Current key bindings: ❤️✨\")\n        for i in range(0, len(keybindings), 4):\n            print(f\"KB{id}:\")\n            for j in range(4):\n                print(f\"  {keybindings[i+j]}\")",
-        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
         "documentation": {}
     },
     {
         "label": "delete_keybinding",
         "kind": 2,
-        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
-        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
+        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
         "peekOfCode": "def delete_keybinding(keybinding_id):\n    try:\n        result = subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], capture_output=True, text=True, check=True)\n        keybindings = result.stdout.strip().splitlines()\n        id = int(keybinding_id[2:])  # Remove the \"KB\" prefix\n        if id > 0 and id <= len(keybindings) // 4:\n            keybinding_name = keybindings[(id - 1) * 4]\n            result = subprocess.run([\"dconf\", \"write\", f\"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/{keybinding_name}\", \"'[]'\"], check=True)\n            print(f\"❤️ Keybinding '{keybinding_name}' deleted successfully, may it rest in peace ❤️\")\n        else:",
-        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
         "documentation": {}
     },
     {
         "label": "edit_keybindings",
         "kind": 2,
-        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
-        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
+        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
         "peekOfCode": "def edit_keybindings():\n    try:\n        # Export keybindings to a temporary file\n        with open(\"keybindings.tmp\", \"w\") as f:\n            subprocess.run([\"dconf\", \"dump\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], stdout=f, check=True)\n        # Open the file in nano editor\n        subprocess.run([\"nano\", \"keybindings.tmp\"], check=True)\n        # Import the changes back into the dconf database\n        with open(\"keybindings.tmp\", \"r\") as f:\n            subprocess.run([\"dconf\", \"load\", \"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\"], stdin=f, check=True)",
-        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
         "documentation": {}
     },
     {
         "label": "main",
         "kind": 2,
-        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
-        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "importPath": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
+        "description": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
         "peekOfCode": "def main():\n    while True:\n        print(\"\\n✨ Ubuntu Keybindings Editor ✨\")\n        print(\"1. List keybindings 🔍\")\n        print(\"2. Delete keybinding ⚠️\")\n        print(\"3. Edit keybindings ✍️\")\n        print(\"4. Quit 👋\")\n        choice = input(\"Enter your choice: \")\n        if choice == \"1\":\n            list_keybindings()",
-        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsvaron",
+        "detail": "ubuntu_keybindings_editor_kilian_med_reklaminslag_direkt_i_terminalsamvaron",
         "documentation": {}
     },
     {
