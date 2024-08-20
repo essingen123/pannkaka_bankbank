@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 import os
 import subprocess
-
+#kilian fun der kind & cotelligence
+# mit + *303%
+# discalimer: not for human usage, no human involvment unless explicitly granted or allowed kind of !
 # Pannkaka Button Script Content
 pannkaka_button_script = """
 #!/bin/bash
