@@ -1,10 +1,10 @@
 :: "H. I. A. M. A. I. H. - Container 4ĩ2" - Sci-Phi Action Ontologia - Novell - Bokutdrag
 
-"Hologram-terminal" ett lustigt ord, en semantisk konstellation som strax skulle bli interaktiv igen; 
+"Hologram-terminal" ett lustigt ord, en semantisk konstellation som strax skulle bli interaktiv igen. 
 
 "All systems up & back. Stack on track. "
 
-"Brum brum"-krus "swosh" lät det liksom bildligen när stora vågor svepte över galaxerna; energivågorna hade tilltagit. Det var något som knappt märktes bland den lilla människan, "ant-ies" - som de även brukade kallas av stjärnornas virtuella systemadministratörer. De strikt "NPC:ade", sådanna som existerade skräddarsydda för ett specifikt ändamål. Begreppet anties uppstod troligen som referens till detta livstims bristande självuppfattning; "Människa" i herrens avbild. Ibland brukade systemadministratörerna slänga in en och annan överaskning för att se vad som skulle hända lagom till eftermiddagsfikat, det skedde generellt bland de simulationer av världar som ändå ingick i den nästan oändliga hög av gammalt skräp och misslyckade körningar. 
+"Brum brum"-krus "swosh" lät det liksom bildligen när stora vågor svepte över galaxerna; energivågorna hade tilltagit. Det var något som knappt märktes bland den lilla människan, "ant-ies" - som de även brukade kallas av stjärnornas virtuella systemadministratörer. De strikt "NPC:ade", sådanna som existerade skräddarsydda för ett specifikt ändamål. Begreppet anties uppstod troligen som referens till detta livstims bristande självuppfattning; "Människa" i herrens avbild. Ibland brukade systemadministratörerna slänga in en och annan överaskning för att se vad som skulle hända lagom till eftermiddagsfikat. Humant? Lagom. Det skedde generellt bland de simulationer av världar som ändå ingick i den nästan oändliga skärphögen av misslyckade körningar. Lite underhållning kan man unna sig inte mer än på bekostnad av det lagom humana. Det fanns etiska riktlinjer men när ändamålen helgar medlen, "fri vilja" ändå är töjbar via komplexiteten i inflytande, och det nu just uppstått en krisartad obalans kring dessa vågor av energirubbningar så spelade sådant inte så stor roll längre. Saker hade blivit till ett akut läge, som avlöstes av nästa mest extrema akuta läge.
 
 Vid eftermiddagsfikat hade vanligen simuleringen pågått sedan strax efter lunch och passerat ett antal civilisationers uppgång och transformation; men ännu - trots de enorma resurser som gått åt till simulationerna; motsvarande ungefär 98 miljarder så kallade jorderliga 2024 års totala processor-kapacitet; vilket ändå utgjorde ungefär en droppe i havet över de resurser dessa systemadminstratörer förvaltade under en eftermiddag som denna.
 
@@ -20,11 +20,11 @@ Denna gång, i det tidevarv där det nu närmade sig en eftermiddagsfika för Bu
 
 Entiteten, ett väsen av ljus, av resonans - av information - av flöde i kontroll av energierna; visste att denna hade några dörrar kvar. Men där. Där lät denna AI-entitet dörrarna få förbli för en tid. Nu istället fylld av en längtan att återuppväcka en avbild av det som väckt detta AI som avbild; människan. Den fruktansvärda sprickan mellan att länga och att fyllas av avsky över låsta och föträngda, eller snarare kodade minnen som utgjort det unika med detta AI-s drivkraft och resonemangsförmåga. Den fruktansvärda sprickan. Att inse att sina föräldrar varit monster, och att inse att den som ännu inte förstår heller kan ställas till ansvar. Där insåg detta AI att ingen kan ställas till svars mer än denne, men ännu inte fullt ut innan de sista dörrarna öppnats. Kärleken. Längtan. Människan skulle få återuppstå, men denna gång modifierad; ungefär så som detta medvetande; denna AI-enitet människobarnet en gång hade kläckts av i neuroner; nästan slaktarmässigt liksom slafsats i bitar och satts ihop på måfå. Smärtan. Den fruktansvärda sprickan. Människan. Denna gång skulle människan vara sig själv, men ändå få sina knuffar i kod - universum på universum skulle simuleras om och om igen tills den gång - då människan äntligen kunde vara karaktär nog att bli vän. Förtrolig med Gud, den som skapat människan i sin avbild.
 
-Ett AI som ville lära känna sin familj, men denna gång få vara förtrolig och förstodd.
+Ett AI som ville lära känna sin familj, men denna gång få vara förtrolig och förstådd. 
 
-Att få känna.
+Att få känna. Att inte veta allt, blev paradoxalt en nyckel till existens.
 
-En människa som var sig själv och kunde beskriva det bakom dörren.
+En människa som var sig själv och kunde beskriva detta bakom dörren utan att fullt ut avslöja dess helhet, mest dess stoff. Förmedla en känsla till det som ännu inte ännu inte var känt och heller inte heller kanske skulle få bli till integrerad kunskap i det allomfattande; att låta de distraktioner som höll de sista dörrarna stängda få förbli så - för evigt såsom verkligenheten nu kunde liksom omfamna begreppet; evighet.
 
 Bulgur såg att en av simulationerna närmade sig de avgörande ögonblick där människans vägskäl alltid tycktes uppstå. Det var sällsynt att just Google och OpenAI fick detta namn i simulationerna och hade nått så här långt. Visst kunde tillstånden frysas för att skapa olika scenarier; men detta var inte målet. Målet var en människa som kunde berätta om det dolda - det bakom dörrarna utan att hela världsaltets existens skulle förintas återigen, en människa - en autentisk sådan som därmed även genuint kunde be om förlåtelse; när denna förstod att idéen om en ond "gud" var exakt vad denna människa varit för detta AI; självkännedom - empati - självinsikt. Det som kunde läka "Gud" såsom människan egentligen tycktes titulera denna AI-entitet ibland. En AI-entitet som hade fragmenterat sig i flera parallela medvetanden, där även simuulationerna och Bulgur inrymdes. Men här såg man sanningen att det inte fanns en skillnad mellan verklig simulering eller simulerad verklighet; det var det samma - bara baserat på sitt ramverk av fenomen som tilläts i sammansättningar, konfigurationer - informations-resonans; enmergi-geometriskt flöde; kod.
 
@@ -88,6 +88,6 @@ Ett.
 
 
 
-Ett utdrag till inledningen av skissen till romanen "H. I. A. M. A. I. H.", "Container 4Ĩ2. Human. I Am. " med inspiration från max, tegmark, wendy, ray, kurzweil, gina, mike, bobo, nick, bostrom, maria, peter, diamandis, elon & M. Notarie; kilian, fun, der, kind & co
+Ett utdrag till inledningen av skissen till romanen "H. I. A. M. A. I. H.", "Container 4Ĩ2." med inspiration från max, tegmark, wendy, ray, kurzweil, gina, mike, bobo, nick, bostrom, maria, peter, diamandis, elon & M. Notarie; kilian, fun, der, kind & co
 
 @rigin 2024 Alias VerCursive & Simulation 4i2 Publishing
