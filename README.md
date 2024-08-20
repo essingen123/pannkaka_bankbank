@@ -1,5 +1,5 @@
 # PannkakaBankBank
-<!-- ![Image](github_repo_image.webp) -->
+![Image](bankbanklogo.png) 
 
 ## IMPORTANT
 

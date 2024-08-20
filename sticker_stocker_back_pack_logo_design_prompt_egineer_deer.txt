@@ -1,0 +1,21 @@
+Logo Design:
+
+The logo features a stylized pancake (pannkaka) with a built-in button in the center. The pancake is designed to resemble a computer chip, paying homage to the script's technical nature. The button is depicted in a bright, electric blue color, evoking a sense of energy and activation.
+
+Color Scheme:
+
+Main color: Warm golden brown (#F7D2C4) to represent the pancake
+Accent color: Bright electric blue (#03A9F4) for the button
+Background: Clean white (#FFFFFF) to provide contrast and make the design pop
+Iconography:
+
+The pancake-button hybrid symbolizes the script's ability to "flip the switch" on system resource management, bringing a sense of control and efficiency to the user. The design is simple, yet distinctive and memorable, making it perfect for a GitHub sticker logo.
+
+Typography:
+
+The logotype is set in a clean, modern sans-serif font (such as Open Sans or Inter) to provide a nice contrast to the playful, whimsical nature of the icon. The text "Pannkaka Button" is written in a horizontal line, with the words "Pannkaka" and "Button" on either side of the icon.
+
+Sticker Design:
+
+The sticker features the logo design centered on a transparent background, with a subtle rounded corner effect to give it a friendly, approachable feel. The sticker is designed to be easily resizable and can be used on GitHub, laptops, water bottles, or any other surface you'd like to decorate.
+
